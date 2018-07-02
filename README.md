@@ -1,11 +1,14 @@
-# Redirect
+# Redirector
 
 my redirector
 
-## add redirect rule
+## to add redirect rule
 
-* `cp -Rv 0001 nnnn`
-* edit `nnnn/index.php`
-  ```php
-  $url = "url of want to redirect to";
-  ```
+* edit `index.php`
+    ```php
+    $config = [
+        "/0001" => "https://twitter.com",
+        "/0002" => "https://www.instagram.com",
+        /* insert url of want to redirect to here */
+    ];
+    ```
