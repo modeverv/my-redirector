@@ -3,6 +3,7 @@
 $config = [
     "/0001" => "https://twitter.com",
     "/0002" => "https://www.instagram.com",
+    "/大澤めぐみ" => "https://twitter.com/ohswmgm?lang=ja",
     /* insert url of want to redirect to here */
 ];
 
@@ -12,11 +13,11 @@ $config = [
  */
 function startsWith($haystack, $needle)
 {
-    return (strpos($haystack, $needle) === 0);
+    return (mb_strpos($haystack, $needle) === 0);
 }
 
 /* main */
-$path = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : "/";
+$path = isset($_SERVER['REQUEST_URI']) ? urldecode($_SERVER['REQUEST_URI']) : "/";
 if ("/" != $path) {
     foreach ($config as $k => $v) {
         if (startsWith($k, $path)) {
