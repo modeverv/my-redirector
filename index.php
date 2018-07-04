@@ -1,6 +1,6 @@
 <?php
 /* config */
-$config = [
+$rule = [
     "/0001" => "https://twitter.com",
     "/0002" => "https://www.instagram.com",
     "/大澤めぐみ" => "https://twitter.com/ohswmgm?lang=ja",
@@ -19,7 +19,7 @@ function startsWith($haystack, $needle)
 /* main */
 $path = isset($_SERVER['REQUEST_URI']) ? urldecode($_SERVER['REQUEST_URI']) : "/";
 if ("/" != $path) {
-    foreach ($config as $k => $v) {
+    foreach ($rule as $k => $v) {
         if (startsWith($k, $path)) {
             header("Location:" . $v);
             exit();
@@ -37,7 +37,7 @@ if ("/" != $path) {
     <body>
         <h1>My Redirector</h1>
         <ul>
-            <?php foreach ($config as $k => $v) {?>
+            <?php foreach ($rule as $k => $v) {?>
             <li><a href="<?php echo $k; ?>"><?php echo preg_replace("/^\//", "", $k); ?></a></li>
             <?php }?>
         </ul>
