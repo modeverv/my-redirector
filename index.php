@@ -1,14 +1,18 @@
 <?php
-/* config */
+/* load config */
 $rule = parse_ini_file('config.ini');
 
-/* function */
 /**
+ * 
  * starts with
+ * 
+ * @param string $haystack haystack 
+ * @param string $needle needle
+ * @return bool start with or not. true start with / false not start with
  */
-function startsWith($haystack, $needle)
+function startsWith(string $haystack , string $needle) : bool
 {
-    return (mb_strpos($haystack, $needle) === 0);
+    return (mb_strpos($haystack , $needle) === 0);
 }
 
 /* main */
