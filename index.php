@@ -1,11 +1,6 @@
 <?php
 /* config */
-$rule = [
-    "0001" => "https://twitter.com",
-    "0002" => "https://www.instagram.com",
-    "大澤めぐみ" => "https://twitter.com/ohswmgm?lang=ja",
-    /* insert url of want to redirect to here */
-];
+$rule = parse_ini_file('config.ini');
 
 /* function */
 /**
